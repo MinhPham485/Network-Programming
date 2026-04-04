@@ -18,8 +18,7 @@ int main() {
 
         sendto(sender, buf, strlen(buf), 0,
             (struct sockaddr *)&addr, sizeof(addr));
-
-        // 🔥 nhận lại từ server
+            
         int n = recvfrom(sender, buf, sizeof(buf)-1, 0, NULL, NULL);
         buf[n] = 0;
 

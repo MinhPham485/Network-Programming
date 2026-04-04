@@ -23,7 +23,9 @@ int main(int argc, char *argv[]) {
 
     while (1) {
         printf("Enter: ");
-        fgets(buf, sizeof(buf), stdin);
+        if (fgets(buf, sizeof(buf), stdin) == NULL) {
+            break;
+        }
         buf[strcspn(buf, "\n")] = 0; //xoa xong dong
         send(client, buf, strlen(buf), 0);
     }
